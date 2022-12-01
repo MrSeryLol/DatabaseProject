@@ -1,0 +1,35 @@
+﻿<Window x:Class="OfficeEquipment.AddEmployeeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OfficeEquipment"
+        mc:Ignorable="d"
+        Title="Добавление сотрудника" Height="450" Width="751">
+    <Grid HorizontalAlignment="Center" Width="717">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <GroupBox x:Name="EmployeeEntry" Header="Добавление" Margin="359,0,0,0">
+            <StackPanel x:Name="EmplDataEntry" Margin="94,0,94,0">
+                <TextBlock x:Name="second_name" TextWrapping="Wrap" Text="Фамилия:" HorizontalAlignment="Center" FontWeight="Bold"/>
+                <TextBox x:Name="second_name_entry" TextWrapping="Wrap" Width="99" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="first_name" TextWrapping="Wrap" Text="Имя:" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5,0,0"/>
+                <TextBox x:Name="first_name_entry" TextWrapping="Wrap" Width="99" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="patronymic" TextWrapping="Wrap" Text="Отчество:" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,5,0,0" FontWeight="Bold"/>
+                <TextBox x:Name="patronymic_entry" TextWrapping="Wrap" Width="99" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="workplace_id" TextWrapping="Wrap" Text="Номер рабочего места:" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Margin="0,5,0,0"/>
+                <TextBox x:Name="workplace_id_entry" TextWrapping="Wrap" Width="99" HorizontalAlignment="Center"/>
+                <Button Content="Добавить" Margin="0,25,0,0" Height="41"/>
+            </StackPanel>
+        </GroupBox>
+        <ListView x:Name="EmployeeList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,363,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>
