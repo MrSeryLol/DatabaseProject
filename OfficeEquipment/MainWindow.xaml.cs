@@ -1,4 +1,6 @@
 ﻿using DbManager;
+using DbManager.Entities;
+using DbManager.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +27,26 @@ namespace OfficeEquipment
         {
             InitializeComponent();
 
-            DataContext = new OfficeEquipmentContext();
+            using (OfficeEquipmentContext context = new OfficeEquipmentContext())
+            {
+                EmployeeModel employeeModel = new EmployeeModel(context);
+                var e = employeeModel.AddEmployee("Сергей", "Полежаев", 1);
+                Category category = new Category()
+                {
+                    CategoryName = "Компьютеры"
+                };
+                employeeModel.AddCategoryToEmployee(category, e);
+                Console.WriteLine("Получение данных из БД");
+                var employees = context.Employees.ToList();
+                foreach (var employee in employees)
+                {
+                    Console.WriteLine($"{employee.FirstName} {employee.SecondName}");
+                    foreach (var c in employee.Categories)
+                    {
+                        Console.WriteLine($"{c.CategoryName}");
+                    }
+                }
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

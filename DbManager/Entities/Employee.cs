@@ -16,4 +16,19 @@ public partial class Employee
     public int WorkplaceId { get; set; }
 
     public virtual ICollection<Category> Categories { get; } = new List<Category>();
+
+    //public Employee(string firstName, string secondName, int workplace_id)
+    //{
+    //    FirstName = firstName;
+    //    SecondName = secondName;
+    //    WorkplaceId = workplace_id;
+    //}
+
+    //public Employee(string firstName, string secondName, string patronymic, int workplace_id)
+    //{
+    //    FirstName = firstName;
+    //    SecondName = secondName;
+    //    Patronymic = patronymic;
+    //    WorkplaceId = workplace_id;
+    //}
 }

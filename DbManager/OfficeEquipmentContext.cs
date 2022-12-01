@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
+=======
+using System.Windows;
+>>>>>>> remotes/origin/master
 using DbManager.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +13,8 @@ public partial class OfficeEquipmentContext : DbContext
 {
     public OfficeEquipmentContext()
     {
+        Database.EnsureDeleted();
+        Database.EnsureCreated();
     }
 
     public OfficeEquipmentContext(DbContextOptions<OfficeEquipmentContext> options)
@@ -62,16 +68,16 @@ public partial class OfficeEquipmentContext : DbContext
                 .UsingEntity<Dictionary<string, object>>(
                     "EmployeeCategory",
                     r => r.HasOne<Category>().WithMany()
-                        .HasForeignKey("CategoryId")
+                        .HasForeignKey("category_id")
                         .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("fk_categoryid"),
                     l => l.HasOne<Employee>().WithMany()
-                        .HasForeignKey("EmployeeId")
+                        .HasForeignKey("employee_id")
                         .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("fk_emolyeeid"),
                     j =>
                     {
-                        j.HasKey("EmployeeId", "CategoryId").HasName("pk_employee_category");
+                        j.HasKey("employee_id", "category_id").HasName("pk_employee_category");
                         j.ToTable("employee_category");
                     });
         });
