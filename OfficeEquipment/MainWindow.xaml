@@ -21,8 +21,8 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Expander x:Name="Add" Height="180" Header="Добавление" Margin="10,10,142,0" VerticalAlignment="Top">
-            <StackPanel x:Name="ButtonPanel" Width="157" Margin="0,0,0,3" RenderTransformOrigin="0.5,0.5">
+        <Expander x:Name="Add" Height="106" Header="Добавление" Margin="10,10,142,0" VerticalAlignment="Top">
+            <StackPanel x:Name="ButtonPanel" Width="193" Margin="0,0,0,3" RenderTransformOrigin="0.5,0.5">
                 <StackPanel.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -35,5 +35,6 @@
                 <Button x:Name="AddTech" Content="Добавление техники" Height="36"/>
             </StackPanel>
         </Expander>
+        <Expander HorizontalAlignment="Left" Height="133" Header="Удаление" Margin="10,121,0,0" VerticalAlignment="Top" Width="195"/>
     </Grid>
 </Window>
