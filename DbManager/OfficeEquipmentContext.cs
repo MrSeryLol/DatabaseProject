@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
-=======
 using System.Windows;
->>>>>>> remotes/origin/master
 using DbManager.Entities;
 using Microsoft.EntityFrameworkCore;
 
