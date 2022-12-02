@@ -16,14 +16,24 @@ namespace DbManager.Models
             _context = context;
         }
 
-        public void AddCategory(string categoryName)
+        public Category AddCategory(string categoryName)
         {
             Category category = new Category()
             {
                 CategoryName = categoryName,
             };
 
+            _context.Categories.Add(category);
+            _context.SaveChanges();
+            return category;
+        }
 
+        public Category AddHardwareToCatrgory(Hardware hardware, Category category)
+        {
+            category.Hardwares.Add(hardware);
+            _context.Categories.Update(category);
+            _context.SaveChanges();
+            return category;
         }
     }
 }

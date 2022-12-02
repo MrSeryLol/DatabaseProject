@@ -20,16 +20,16 @@
                 <TextBox x:Name="patronymic_entry" TextWrapping="Wrap" Width="99" HorizontalAlignment="Center"/>
                 <TextBlock x:Name="workplace_id" TextWrapping="Wrap" Text="Номер рабочего места:" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Margin="0,5,0,0"/>
                 <TextBox x:Name="workplace_id_entry" TextWrapping="Wrap" Width="99" HorizontalAlignment="Center"/>
-                <Button Content="Добавить" Margin="0,25,0,0" Height="41"/>
+                <Button Content="Добавить" Margin="0,25,0,0" Height="41" Click="btn_AddEmployee"/>
             </StackPanel>
         </GroupBox>
-        <ListView x:Name="EmployeeList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,363,0">
+        <ListView x:Name="EmployeeList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,363,0"
+                  SelectionChanged="EmployeeList_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-
     </Grid>
 </Window>
