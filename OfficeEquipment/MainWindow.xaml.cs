@@ -24,6 +24,9 @@ namespace OfficeEquipment
     /// </summary>
     public partial class MainWindow : Window
     {
+        private EmployeeModel _employeeModel;
+
+        public ObservableCollection<Employee> _employees;
 
         private OfficeEquipmentContext _db;
         public MainWindow()
@@ -31,14 +34,30 @@ namespace OfficeEquipment
             InitializeComponent();
             //Инициализируем общий контекст для всех окон
             _db = new OfficeEquipmentContext();
+            _employeeModel = new EmployeeModel(_db);
+
+            _employees = _employeeModel.GetEmployees();
+            EmployeeList.ItemsSource = _employees;
         }
 
         private void AddEmployee_Click(object sender, RoutedEventArgs e)
         {
-            AddEmployeeWindow w1 = new AddEmployeeWindow(_db);
+            AddEmployeeWindow w1 = new AddEmployeeWindow(_db,_employeeModel);
             w1.Owner = this;
             w1.Show();
         }
 
+        private void EmployeeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+             Employee employees = (Employee)EmployeeList.SelectedItem;
+
+            Console.WriteLine(employees);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            _employees = _employeeModel.GetEmployees();
+            EmployeeList.ItemsSource = _employees;
+        }
     }
 }
