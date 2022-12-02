@@ -190,3 +190,5 @@ git_stats/*
 StyleCop.Cache
 bin
 obj
+*.dtbcache.v2
+*.futdcache.v2

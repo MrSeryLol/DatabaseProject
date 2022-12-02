@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,38 +24,43 @@ namespace OfficeEquipment
     /// </summary>
     public partial class AddEmployeeWindow : Window
     {
-        public ObservableCollection<Employee> employees;
+        private EmployeeModel _employeeModel;
 
-        private Employee _employee;
-
-        private OfficeEquipmentContext _db;
-
-        EmployeeModel _employeeModel;
-
-        public AddEmployeeWindow(OfficeEquipmentContext db,EmployeeModel employeeModel)
+        public AddEmployeeWindow(EmployeeModel employeeModel)
         {
             InitializeComponent();
-            this._db = db;
             _employeeModel = employeeModel;
-
-           
-            
         }
 
         private void btn_AddEmployee(object sender, RoutedEventArgs e)
-        {
-            //_employeeModel = new EmployeeModel(_db);
-            _employeeModel.AddEmployee(first_name_entry.Text, second_name_entry.Text, Convert.ToInt32(workplace_id_entry.Text));
+        { 
+            if (string.IsNullOrEmpty(first_name_entry.Text) || string.IsNullOrEmpty(second_name_entry.Text) ||
+                string.IsNullOrEmpty(workplace_id_entry.Text))
+            {
+                MessageBox.Show("Заполните обязательные поля!", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
-            
-            
+            if (!int.TryParse(workplace_id_entry.Text, out _))
+            {
+                MessageBox.Show("Поле 'Номер рабочего места' должно быть числом!", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (Convert.ToInt32(workplace_id_entry.Text) == _employeeModel.
+                FindEmployeeByID(Convert.ToInt32(workplace_id_entry.Text))?.WorkplaceId)
+            {
+                MessageBox.Show("Нельзя добавлять одинаковые рабочие места!!!", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(patronymic_entry.Text))
+            {
+                _employeeModel.AddEmployee(first_name_entry.Text, second_name_entry.Text, Convert.ToInt32(workplace_id_entry.Text));
+                return;
+            }
+
+            _employeeModel.AddEmployee(first_name_entry.Text, second_name_entry.Text, patronymic_entry.Text, Convert.ToInt32(workplace_id_entry.Text));
         }
-
-        /*private void EmployeeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            _employee = (Employee)EmployeeList.SelectedItem;
-
-            Console.WriteLine(_employee);
-        }*/
     }
 }

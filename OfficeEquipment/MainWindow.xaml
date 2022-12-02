@@ -27,7 +27,7 @@
                     </TransformGroup>
                 </StackPanel.RenderTransform>
                 <Button x:Name="AddEmployee" Content="Добавление сотрудника" Height="36" Click="AddEmployee_Click"/>
-                <Button x:Name="AddTech" Content="Добавление техники" Height="36"/>
+                <Button x:Name="AddTech" Content="Добавление техники" Height="36" Click="AddTech_Click"/>
             </StackPanel>
         </Expander>
         <Expander HorizontalAlignment="Left" Height="133" Header="Удаление" Margin="0,121,0,0" VerticalAlignment="Top" Width="220"/>
