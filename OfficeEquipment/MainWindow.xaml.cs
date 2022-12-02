@@ -48,5 +48,18 @@ namespace OfficeEquipment
                 }
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            AddEmployeeWindow w1 = new AddEmployeeWindow();
+            w1.Owner = this;
+            w1.Show();
+        }
+
     }
 }

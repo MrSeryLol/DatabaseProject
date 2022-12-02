@@ -5,41 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OfficeEquipment"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Главное меню" Height="450" Width="333">
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="14" />
         </Style>
-        
-        
+
+
     </Window.Resources>
-    <Grid>
+    <Grid RenderTransformOrigin="0.708,0.374" Margin="0,0,1,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="0.8*"/>
+            <ColumnDefinition Width="Auto" MinWidth="320"/>
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-
-        <ListBox Grid.Column="0" ItemsSource="{Binding Phones}"
-                 SelectedItem="{Binding SelectedPhone}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Margin="5">
-                        <TextBlock FontSize="18" Text="{Binding Path=Title}"/>
-                        <TextBlock Text="{Binding Path=Compant}"/>
-                        <TextBlock Text="{Binding Path=Price}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-
-        <StackPanel Grid.Column="1" DataContext="{Binding SelectedPhone}">
-            <TextBlock Text="Выбранный элемент"/>
-            <TextBlock Text="Модель"/>
-            <TextBlock Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Производитель"/>
-            <TextBlock Text="{Binding Company, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Цена"/>
-            <TextBlock Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"/>
-        </StackPanel>
+        <Expander x:Name="Add" Height="106" Header="Добавление" Margin="10,10,142,0" VerticalAlignment="Top">
+            <StackPanel x:Name="ButtonPanel" Width="193" Margin="0,0,0,3" RenderTransformOrigin="0.5,0.5">
+                <StackPanel.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-0.294"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0.395"/>
+                    </TransformGroup>
+                </StackPanel.RenderTransform>
+                <Button x:Name="AddEmployee" Content="Добавление сотрудника" Height="36" Click="AddEmployee_Click"/>
+                <Button x:Name="AddTech" Content="Добавление техники" Height="36"/>
+            </StackPanel>
+        </Expander>
+        <Expander HorizontalAlignment="Left" Height="133" Header="Удаление" Margin="10,121,0,0" VerticalAlignment="Top" Width="195"/>
     </Grid>
 </Window>
