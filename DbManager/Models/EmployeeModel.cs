@@ -1,6 +1,7 @@
 ﻿using DbManager.Entities;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,11 @@ namespace DbManager.Models
 
         public EmployeeModel(OfficeEquipmentContext context)
         {
-            _context = context;
+            if (_context != null)
+            {
+                return;
+            }
+            this._context = context;
         }
 
         /// <summary>
@@ -86,6 +91,12 @@ namespace DbManager.Models
             }
 
             return null;
+        }
+
+        public ObservableCollection<Employee> GetEmployees()
+        {
+            return new ObservableCollection<Employee>(
+                _context.Employees.Select(p => p).ToList<Employee>());
         }
     }
 

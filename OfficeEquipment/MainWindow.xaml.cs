@@ -23,40 +23,18 @@ namespace OfficeEquipment
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private OfficeEquipmentContext _db;
         public MainWindow()
         {
             InitializeComponent();
-
-            using (OfficeEquipmentContext context = new OfficeEquipmentContext())
-            {
-                EmployeeModel employeeModel = new EmployeeModel(context);
-                var e = employeeModel.AddEmployee("Сергей", "Полежаев", 1);
-                Category category = new Category()
-                {
-                    CategoryName = "Компьютеры"
-                };
-                employeeModel.AddCategoryToEmployee(category, e);
-                Console.WriteLine("Получение данных из БД");
-                var employees = context.Employees.ToList();
-                foreach (var employee in employees)
-                {
-                    Console.WriteLine($"{employee.FirstName} {employee.SecondName}");
-                    foreach (var c in employee.Categories)
-                    {
-                        Console.WriteLine($"{c.CategoryName}");
-                    }
-                }
-            }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
+            //Инициализируем общий контекст для всех окон
+            _db = new OfficeEquipmentContext();
         }
 
         private void AddEmployee_Click(object sender, RoutedEventArgs e)
         {
-            AddEmployeeWindow w1 = new AddEmployeeWindow();
+            AddEmployeeWindow w1 = new AddEmployeeWindow(_db);
             w1.Owner = this;
             w1.Show();
         }

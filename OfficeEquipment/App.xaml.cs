@@ -13,5 +13,6 @@ namespace OfficeEquipment
     /// </summary>
     public partial class App : Application
     {
+
     }
 }
