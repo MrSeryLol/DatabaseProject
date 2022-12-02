@@ -29,30 +29,32 @@ namespace OfficeEquipment
 
         private OfficeEquipmentContext _db;
 
-        public AddEmployeeWindow(OfficeEquipmentContext db)
+        EmployeeModel _employeeModel;
+
+        public AddEmployeeWindow(OfficeEquipmentContext db,EmployeeModel employeeModel)
         {
             InitializeComponent();
             this._db = db;
-            EmployeeModel employeeModel = new EmployeeModel(_db);
+            _employeeModel = employeeModel;
 
-            employees = employeeModel.GetEmployees();
-            EmployeeList.ItemsSource = employees;
+           
+            
         }
 
         private void btn_AddEmployee(object sender, RoutedEventArgs e)
         {
-            EmployeeModel employeeModel = new EmployeeModel(_db);
-            employeeModel.AddEmployee(first_name_entry.Text, second_name_entry.Text, Convert.ToInt32(workplace_id_entry.Text));
+            //_employeeModel = new EmployeeModel(_db);
+            _employeeModel.AddEmployee(first_name_entry.Text, second_name_entry.Text, Convert.ToInt32(workplace_id_entry.Text));
 
-            employees = employeeModel.GetEmployees();
-            EmployeeList.ItemsSource = employees;
+            
+            
         }
 
-        private void EmployeeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /*private void EmployeeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _employee = (Employee)EmployeeList.SelectedItem;
 
             Console.WriteLine(_employee);
-        }
+        }*/
     }
 }

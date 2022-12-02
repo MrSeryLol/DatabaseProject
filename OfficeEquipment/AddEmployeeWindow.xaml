@@ -23,13 +23,5 @@
                 <Button Content="Добавить" Margin="0,25,0,0" Height="41" Click="btn_AddEmployee"/>
             </StackPanel>
         </GroupBox>
-        <ListView x:Name="EmployeeList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,363,0"
-                  SelectionChanged="EmployeeList_SelectionChanged">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
     </Grid>
 </Window>
