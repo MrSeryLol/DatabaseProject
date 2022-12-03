@@ -52,22 +52,26 @@ namespace OfficeEquipment
         private void Categories_DropDownOpened(object sender, EventArgs e)
         {
             _categories = _categoryModel.GetCategories();
-            Category.ItemsSource = _categories;
         }
 
         private void btn_AddHardware(object sender, EventArgs e)
         {
-            Category category = (Category)Category.SelectedItem;
+            //Category category = (Category)Category.SelectedItem;
             Employee employee = (Employee)Employee.SelectedItem;
+            ComboBoxItem comboBoxItem =(ComboBoxItem) CategoriesBox.SelectedItem;
+            string categoryName = comboBoxItem.Content.ToString();
             
-            
-            
-            
-            
-            
-            
+            Category category = _categoryModel.AddCategory(categoryName);
             _employeeModel.AddCategoryToEmployee(category, employee);
+            
+            
+            
+            
+            
+            
+            //_employeeModel.AddCategoryToEmployee(category, employee);
             _hardwareModel.AddHardware(hardware_name.Text, Convert.ToDecimal(price.Text), DateOnly.Parse(production_year.Text), DateOnly.Parse(purchase_date.Text), category.CategoryId);
         }
+
     }
 }

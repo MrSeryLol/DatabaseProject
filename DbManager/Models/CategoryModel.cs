@@ -17,20 +17,6 @@ namespace DbManager.Models
         public CategoryModel(OfficeEquipmentContext context)
         {
             _context = context;
-
-            _categories = new List<Category>()
-            {
-                new Category() { CategoryName = "Компьютеры" },
-                new Category() { CategoryName = "Планшеты"},
-                new Category() { CategoryName = "Ноутбуки"},
-                new Category() { CategoryName = "Мониторы"},
-                new Category() { CategoryName = "Мышки"},
-                new Category() { CategoryName = "Флешки"},
-                new Category() { CategoryName = "Клавиатуры"},
-                new Category() { CategoryName = "Принтеры"},
-            };
-
-            _context.Categories.AddRange(_categories);
         }
 
         public Category AddCategory(string categoryName)
