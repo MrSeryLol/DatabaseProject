@@ -2,6 +2,7 @@
 using DbManager.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,15 +22,52 @@ namespace OfficeEquipment
     /// </summary>
     public partial class AddHardwareWindow : Window
     {
-        private readonly Employee _employee;
+        private readonly CategoryModel _categoryModel;
         private readonly EmployeeModel _employeeModel;
+        private readonly HardwareModel _hardwareModel;
+        private ObservableCollection<Employee> _employees;
+        private ObservableCollection<Category> _categories;
 
-        public AddHardwareWindow(Employee employee, EmployeeModel employeeModel)
+        public AddHardwareWindow(CategoryModel categoryModel, EmployeeModel employeeModel, HardwareModel hardwareModel, ObservableCollection<Employee> employees)
         {
             InitializeComponent();
-            _employee = employee;
+            _categoryModel = categoryModel;
             _employeeModel = employeeModel;
+            _hardwareModel = hardwareModel;
+            _employees = employees;
+        }
 
+        private void Employee_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //_employees = _employeeModel.GetEmployees();
+            //Employee.ItemsSource = _employees;
+        }
+
+        private void Employee_DropDownOpened(object sender, EventArgs e)
+        {
+            _employees = _employeeModel.GetEmployees();
+            Employee.ItemsSource = _employees;
+        }
+
+        private void Categories_DropDownOpened(object sender, EventArgs e)
+        {
+            _categories = _categoryModel.GetCategories();
+            Category.ItemsSource = _categories;
+        }
+
+        private void btn_AddHardware(object sender, EventArgs e)
+        {
+            Category category = (Category)Category.SelectedItem;
+            Employee employee = (Employee)Employee.SelectedItem;
+            
+            
+            
+            
+            
+            
+            
+            _employeeModel.AddCategoryToEmployee(category, employee);
+            _hardwareModel.AddHardware(hardware_name.Text, Convert.ToDecimal(price.Text), DateOnly.Parse(production_year.Text), DateOnly.Parse(purchase_date.Text), category.CategoryId);
         }
     }
 }

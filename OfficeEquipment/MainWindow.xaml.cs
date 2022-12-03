@@ -30,6 +30,8 @@ namespace OfficeEquipment
 
         private CategoryModel _categoryModel;
 
+        private HardwareModel _hardwareModel;
+
         public ObservableCollection<Employee> _employees;
 
         private OfficeEquipmentContext _db;
@@ -40,6 +42,7 @@ namespace OfficeEquipment
             _db = new OfficeEquipmentContext();
             _employeeModel = new EmployeeModel(_db);
             _categoryModel = new CategoryModel(_db);
+            _hardwareModel = new HardwareModel(_db);
 
             _employees = _employeeModel.GetEmployees();
             EmployeeList.ItemsSource = _employees;
@@ -67,7 +70,9 @@ namespace OfficeEquipment
 
         private void AddTech_Click(object sender, RoutedEventArgs e)
         {
-            AddHardwareWindow w2 = new AddHardwareWindow(_employee, _employeeModel);
+            AddHardwareWindow w2 = new AddHardwareWindow(_categoryModel, _employeeModel, _hardwareModel, _employees);
+            w2.Owner = this;
+            w2.Show();
         }
     }
 }

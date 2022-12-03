@@ -1,6 +1,7 @@
 ﻿using DbManager.Entities;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,6 +51,12 @@ namespace DbManager.Models
             _context.Categories.Update(category);
             _context.SaveChanges();
             return category;
+        }
+
+        public ObservableCollection<Category> GetCategories()
+        {
+            return new ObservableCollection<Category>(
+                _context.Categories.Select(p => p).ToList<Category>());
         }
     }
 }
