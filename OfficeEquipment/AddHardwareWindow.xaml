@@ -7,17 +7,22 @@
         mc:Ignorable="d"
         Title="AddHardwareWindow" Height="450" Width="557">
     <Grid>
-        <ComboBox x:Name="Employee" HorizontalAlignment="Left" Margin="26,33,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox HorizontalAlignment="Left" Margin="189,33,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="Employee" HorizontalAlignment="Left" Margin="26,33,0,0" VerticalAlignment="Top" Width="120" 
+                  DropDownOpened="Employee_DropDownOpened"/>
+        <ComboBox x:Name="Category" HorizontalAlignment="Left" Margin="189,33,0,0" VerticalAlignment="Top" Width="120"
+                  DropDownOpened="Categories_DropDownOpened"/>
         <TextBlock x:Name="employee" HorizontalAlignment="Left" Margin="51,12,0,0" TextWrapping="Wrap" Text="Сотрудники" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBlock x:Name="categories" HorizontalAlignment="Left" Margin="219,12,0,0" TextWrapping="Wrap" Text="Категории" VerticalAlignment="Top" FontWeight="Bold"/>
         <StackPanel Margin="340,0,55,0">
             <TextBlock TextWrapping="Wrap" Text="Наименование техники:" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
-            <TextBox TextWrapping="Wrap" Width="120" HorizontalAlignment="Center"/>
-            <TextBlock TextWrapping="Wrap" Text="Цена:" Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
-            <TextBox TextWrapping="Wrap" Width="120" HorizontalAlignment="Center"/>
+            <TextBox x:Name="hardware_name" TextWrapping="Wrap" Width="120" HorizontalAlignment="Center"/>
+            <TextBlock TextWrapping="Wrap" Text="Цена (в руб.):" Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="price" TextWrapping="Wrap" Width="120" HorizontalAlignment="Center"/>
             <TextBlock TextWrapping="Wrap" Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Год производства:" FontWeight="Bold"/>
-            <TextBox TextWrapping="Wrap" Width="120" HorizontalAlignment="Center"/>
+            <TextBox x:Name="production_year" TextWrapping="Wrap" Width="120" HorizontalAlignment="Center"/>
+            <TextBlock TextWrapping="Wrap" Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Дата покупки:" FontWeight="Bold"/>
+            <TextBox x:Name="purchase_date" TextWrapping="Wrap" Width="120" HorizontalAlignment="Center"/>
+            <Button Content="Добавить" Margin="0,25,0,0" Height="41" Click="btn_AddHardware"/>
         </StackPanel>
     </Grid>
 </Window>

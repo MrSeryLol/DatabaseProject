@@ -16,14 +16,15 @@ namespace DbManager.Models
             _context = context;
         }
 
-        public Hardware AddHardware(string hardware_name, decimal price, DateOnly production_year, DateOnly purchase_date)
+        public Hardware AddHardware(string hardware_name, decimal price, DateOnly production_year, DateOnly purchase_date, int category_id)
         {
             Hardware hardware = new Hardware()
             {
                 HardwareName = hardware_name,
                 Price = price,
                 ProductionYear = production_year,
-                PurchaseDate = purchase_date
+                PurchaseDate = purchase_date,
+                CategoryId = category_id
             };
 
             _context.Hardwares.Add(hardware);

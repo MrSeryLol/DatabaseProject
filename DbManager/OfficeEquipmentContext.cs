@@ -95,6 +95,7 @@ public partial class OfficeEquipmentContext : DbContext
                 .HasColumnName("price");
             entity.Property(e => e.ProductionYear).HasColumnName("production_year");
             entity.Property(e => e.PurchaseDate).HasColumnName("purchase_date");
+            entity.Property(e => e.Status).HasColumnName("status").HasDefaultValue(true);
 
             entity.HasOne(d => d.Category).WithMany(p => p.Hardwares)
                 .HasForeignKey(d => d.CategoryId)
