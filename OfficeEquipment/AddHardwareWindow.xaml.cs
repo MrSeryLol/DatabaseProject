@@ -63,9 +63,9 @@ namespace OfficeEquipment
             
             
             
+         
             
-            
-            
+
             _employeeModel.AddCategoryToEmployee(category, employee);
             _hardwareModel.AddHardware(hardware_name.Text, Convert.ToDecimal(price.Text), DateOnly.Parse(production_year.Text), DateOnly.Parse(purchase_date.Text), category.CategoryId);
         }
