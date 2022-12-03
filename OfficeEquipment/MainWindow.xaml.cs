@@ -26,6 +26,10 @@ namespace OfficeEquipment
     {
         private EmployeeModel _employeeModel;
 
+        private Employee _employee;
+
+        private CategoryModel _categoryModel;
+
         public ObservableCollection<Employee> _employees;
 
         private OfficeEquipmentContext _db;
@@ -35,6 +39,7 @@ namespace OfficeEquipment
             //Инициализируем общий контекст для всех окон
             _db = new OfficeEquipmentContext();
             _employeeModel = new EmployeeModel(_db);
+            _categoryModel = new CategoryModel(_db);
 
             _employees = _employeeModel.GetEmployees();
             EmployeeList.ItemsSource = _employees;
@@ -42,22 +47,27 @@ namespace OfficeEquipment
 
         private void AddEmployee_Click(object sender, RoutedEventArgs e)
         {
-            AddEmployeeWindow w1 = new AddEmployeeWindow(_db,_employeeModel);
+            AddEmployeeWindow w1 = new AddEmployeeWindow(_employeeModel);
             w1.Owner = this;
             w1.Show();
         }
 
         private void EmployeeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-             Employee employees = (Employee)EmployeeList.SelectedItem;
+            _employee = (Employee)EmployeeList.SelectedItem;
 
-            Console.WriteLine(employees);
+            Console.WriteLine(_employee);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             _employees = _employeeModel.GetEmployees();
             EmployeeList.ItemsSource = _employees;
+        }
+
+        private void AddTech_Click(object sender, RoutedEventArgs e)
+        {
+            AddHardwareWindow w2 = new AddHardwareWindow(_employee, _employeeModel);
         }
     }
 }

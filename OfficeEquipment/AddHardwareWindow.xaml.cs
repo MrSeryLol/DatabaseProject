@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DbManager.Entities;
+using DbManager.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,15 @@ namespace OfficeEquipment
     /// </summary>
     public partial class AddHardwareWindow : Window
     {
-        public AddHardwareWindow()
+        private readonly Employee _employee;
+        private readonly EmployeeModel _employeeModel;
+
+        public AddHardwareWindow(Employee employee, EmployeeModel employeeModel)
         {
             InitializeComponent();
+            _employee = employee;
+            _employeeModel = employeeModel;
+
         }
     }
 }

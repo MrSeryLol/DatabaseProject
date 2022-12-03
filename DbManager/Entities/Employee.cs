@@ -19,6 +19,6 @@ public partial class Employee
 
     public override string ToString()
     {
-        return SecondName + " " + FirstName + " ";
+        return SecondName + " " + FirstName + " " + Patronymic + WorkplaceId;
     }
 }
