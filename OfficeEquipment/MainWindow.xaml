@@ -53,5 +53,6 @@
             </ListView.View>
         </ListView>
         <Button x:Name="RefreshEmployeeList" Content="Обновить" HorizontalAlignment="Left" Margin="544,259,0,0" VerticalAlignment="Top" Width="85" Click="Button_Click"/>
+        <Button x:Name="ChangeHardwareStatus" Content="Изменить состояние техники" HorizontalAlignment="Left" Margin="359,259,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
