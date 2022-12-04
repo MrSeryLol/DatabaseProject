@@ -37,7 +37,7 @@ public partial class OfficeEquipmentContext : DbContext
 
             entity.ToTable("category");
 
-            entity.HasIndex(e => e.CategoryName, "category_category_name_key").IsUnique();
+            //entity.HasIndex(e => e.CategoryName, "category_category_name_key").IsUnique();
 
             entity.Property(e => e.CategoryId)
                 .UseIdentityAlwaysColumn()
@@ -95,6 +95,7 @@ public partial class OfficeEquipmentContext : DbContext
                 .HasColumnName("price");
             entity.Property(e => e.ProductionYear).HasColumnName("production_year");
             entity.Property(e => e.PurchaseDate).HasColumnName("purchase_date");
+            entity.Property(e => e.Status).HasColumnName("status").HasDefaultValue(true);
 
             entity.HasOne(d => d.Category).WithMany(p => p.Hardwares)
                 .HasForeignKey(d => d.CategoryId)

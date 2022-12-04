@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OfficeEquipment"
         mc:Ignorable="d"
-        Title="Добавление сотрудника" Height="450" Width="751">
-    <Grid HorizontalAlignment="Center" Width="717">
+        Title="Добавление сотрудника" Height="301" Width="308">
+    <Grid HorizontalAlignment="Center" Width="660">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <GroupBox x:Name="EmployeeEntry" Header="Добавление" Margin="359,0,0,0">
+        <GroupBox x:Name="EmployeeEntry" Header="Добавление" Margin="180,0,179,0">
             <StackPanel x:Name="EmplDataEntry" Margin="94,0,94,0">
                 <TextBlock x:Name="second_name" TextWrapping="Wrap" Text="Фамилия:" HorizontalAlignment="Center" FontWeight="Bold"/>
                 <TextBox x:Name="second_name_entry" TextWrapping="Wrap" Width="99" HorizontalAlignment="Center"/>

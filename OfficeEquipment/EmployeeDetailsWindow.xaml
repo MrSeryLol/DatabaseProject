@@ -1,0 +1,49 @@
+﻿<Window x:Class="OfficeEquipment.EmployeeDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OfficeEquipment"
+        mc:Ignorable="d"
+        Title="EmployeeDetailsWindow" Height="450" Width="807">
+    <Grid>
+        <TextBox x:Name="FullNameEmployee" HorizontalAlignment="Left" Margin="170,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" IsReadOnly="True"/>
+        <TextBlock x:Name="FullName" HorizontalAlignment="Left" Margin="232,10,0,0" TextWrapping="Wrap" Text="ФИО:" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock x:Name="Workplace_id" HorizontalAlignment="Left" Margin="433,5,0,0" TextWrapping="Wrap" Text="№ рабочего места" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="WorkplaceID" HorizontalAlignment="Left" Margin="427,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBlock HorizontalAlignment="Left" Margin="37,73,0,0" TextWrapping="Wrap" Text="Категория техники" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ComboBox x:Name="Categories" HorizontalAlignment="Left" Margin="32,94,0,0" VerticalAlignment="Top" Width="120"
+                  SelectionChanged="Categories_SelectionChanged">
+            <ComboBoxItem Content="Компьютеры"/>
+            <ComboBoxItem Content="Ноутбуки"/>
+            <ComboBoxItem Content="Планшеты"/>
+            <ComboBoxItem Content="Мониторы"/>
+            <ComboBoxItem Content="Клавиатуры"/>
+            <ComboBoxItem Content="Мышки"/>
+            <ComboBoxItem Content="Флешки"/>
+            <ComboBoxItem Content="Принтеры"/>
+        </ComboBox>
+        <ListView x:Name="HardwareList" Margin="10,135,329,24">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=HardwareName}">Наименование техники</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Price}" Width="60">Цена</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=ProductionYear}">Год производства</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=PurchaseDate}">Дата покупки</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Status}" Width="100">Состояние техники</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name="SummaryPrice" HorizontalAlignment="Center" Margin="0,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" IsReadOnly="True"/>
+        <TextBlock x:Name="_SumarryPrice" HorizontalAlignment="Center" Margin="0,73,0,0" TextWrapping="Wrap" Text="Общая стоимость техники" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ListView x:Name="DefectiveHardware" Margin="487,135,26,24">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=HardwareName}" Width="280">Наименование техники</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock HorizontalAlignment="Left" Margin="563,105,0,0" TextWrapping="Wrap" Text="Неисправная техника" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Width="185"/>
+
+    </Grid>
+</Window>

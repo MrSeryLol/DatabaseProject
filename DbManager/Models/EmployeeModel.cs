@@ -93,6 +93,14 @@ namespace DbManager.Models
             return null;
         }
 
+        public void DeleteEmployee(Employee employee)
+        {
+            _context.Employees.Attach(employee);
+            _context.Employees.Remove(employee);
+            _context.SaveChanges();
+            
+        }
+
         public ObservableCollection<Employee> GetEmployees()
         {
             return new ObservableCollection<Employee>(
