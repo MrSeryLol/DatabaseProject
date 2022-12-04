@@ -74,5 +74,25 @@ namespace OfficeEquipment
             w2.Owner = this;
             w2.Show();
         }
+        private void EmployeeDetails_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeDetailsWindow employeeDetailsWindow = new EmployeeDetailsWindow();
+            employeeDetailsWindow.Owner = this;
+            employeeDetailsWindow.Show();
+        }
+
+        private void DeleteHardware_Click(object sender, RoutedEventArgs e)
+        {
+            DeleteHardware deleteHardware = new DeleteHardware();
+            deleteHardware.Owner = this;
+            deleteHardware.Show();
+        }
+
+        private void ChangeHardwareStatus_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeStatusWindow changeStatusWindow = new ChangeStatusWindow();
+            changeStatusWindow.Owner = this;
+            changeStatusWindow.Show();
+        }
     }
 }

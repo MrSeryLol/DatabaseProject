@@ -15,16 +15,16 @@ using System.Windows.Shapes;
 namespace OfficeEquipment
 {
     /// <summary>
-    /// Логика взаимодействия для EmployeeDetailsWindow.xaml
+    /// Логика взаимодействия для DeleteHardware.xaml
     /// </summary>
-    public partial class EmployeeDetailsWindow : Window
+    public partial class DeleteHardware : Window
     {
-        public EmployeeDetailsWindow()
+        public DeleteHardware()
         {
             InitializeComponent();
         }
 
-        private void BackToMainWindow_Click(object sender, RoutedEventArgs e)
+        private void btn_DeleteHardware_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }

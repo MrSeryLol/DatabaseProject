@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace OfficeEquipment
 {
     /// <summary>
-    /// Логика взаимодействия для EmployeeDetailsWindow.xaml
+    /// Логика взаимодействия для ChangeStatusWindow.xaml
     /// </summary>
-    public partial class EmployeeDetailsWindow : Window
+    public partial class ChangeStatusWindow : Window
     {
-        public EmployeeDetailsWindow()
+        public ChangeStatusWindow()
         {
             InitializeComponent();
         }
