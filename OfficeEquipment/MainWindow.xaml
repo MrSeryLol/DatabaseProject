@@ -40,7 +40,7 @@
             <ListView.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Изменить данные"></MenuItem>
-                    <MenuItem Header="Доп.информация"></MenuItem>
+                    <MenuItem Header="Доп.информация" Click="MenuItem_ExtraInfoClick"></MenuItem>
                 </ContextMenu>
             </ListView.ContextMenu>
             <ListView.View>

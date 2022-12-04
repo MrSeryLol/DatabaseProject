@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbManager.Entities;
 
@@ -20,4 +21,9 @@ public partial class Hardware
     public int CategoryId { get; set; }
 
     public virtual Category Category { get; set; } = null!;
+
+    public override string ToString()
+    {
+        return HardwareName;
+    }
 }

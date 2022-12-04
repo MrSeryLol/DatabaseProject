@@ -37,7 +37,7 @@ public partial class OfficeEquipmentContext : DbContext
 
             entity.ToTable("category");
 
-            entity.HasIndex(e => e.CategoryName, "category_category_name_key").IsUnique();
+            //entity.HasIndex(e => e.CategoryName, "category_category_name_key").IsUnique();
 
             entity.Property(e => e.CategoryId)
                 .UseIdentityAlwaysColumn()

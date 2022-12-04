@@ -1,6 +1,7 @@
 ﻿using DbManager.Entities;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,12 @@ namespace DbManager.Models
             _context.Hardwares.Add(hardware);
             _context.SaveChanges();
             return hardware;
+        }
+
+        public ObservableCollection<Hardware> GetHardwares()
+        {
+            return new ObservableCollection<Hardware>(
+                _context.Hardwares.Select(p => p).ToList<Hardware>());
         }
     }
 }
