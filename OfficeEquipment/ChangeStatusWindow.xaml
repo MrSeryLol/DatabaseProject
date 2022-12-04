@@ -11,16 +11,26 @@
         <ListView x:Name="HardwareList" Margin="21,47,21,47">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn>Наименование техники</GridViewColumn>
-                    <GridViewColumn Width="60">Цена</GridViewColumn>
-                    <GridViewColumn>Год производства</GridViewColumn>
-                    <GridViewColumn>Дата покупки</GridViewColumn>
-                    <GridViewColumn Width="100">Состояние техники</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=HardwareName}">Наименование техники</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Price}" Width="60">Цена</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=ProductionYear}">Год производства</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=PurchaseDate}">Дата покупки</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Status}" Width="100">Состояние техники</GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ComboBox x:Name="CategoriesBox" HorizontalAlignment="Left" Margin="182,16,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="CategoriesBox" HorizontalAlignment="Left" Margin="182,16,0,0" VerticalAlignment="Top" Width="120"
+            SelectionChanged="Categories_SelectionChanged">
+            <ComboBoxItem Content="Компьютеры"/>
+            <ComboBoxItem Content="Ноутбуки"/>
+            <ComboBoxItem Content="Планшеты"/>
+            <ComboBoxItem Content="Мониторы"/>
+            <ComboBoxItem Content="Клавиатуры"/>
+            <ComboBoxItem Content="Мышки"/>
+            <ComboBoxItem Content="Флешки"/>
+            <ComboBoxItem Content="Принтеры"/>
+        </ComboBox>
         <Button x:Name="BackToMainWindow" Content="Назад" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="68" Click="BackToMainWindow_Click"/>
-        <Button x:Name="ChangeHardwareStatus" Content="Изменить состояние техники" HorizontalAlignment="Left" Margin="310,290,0,0" VerticalAlignment="Top" Width="192"/>
+        <Button x:Name="ChangeHardwareStatus" Content="Изменить состояние техники" HorizontalAlignment="Left" Margin="310,290,0,0" VerticalAlignment="Top" Width="192" Click="ChangeHardwareStatus_Click"/>
     </Grid>
 </Window>

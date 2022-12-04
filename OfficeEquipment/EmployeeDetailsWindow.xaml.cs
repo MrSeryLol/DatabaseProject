@@ -58,9 +58,21 @@ namespace OfficeEquipment
                 Console.WriteLine(hardware);
             }
 
+            var defectiveHardwares = _db.Hardwares
+                .FromSql($"SELECT *\r\nFROM employee\r\nJOIN employee_category USING(employee_id)\r\nJOIN category USING(category_id)\r\nJOIN hardware USING(category_id) WHERE category_name = {categoryName} AND employee_id = {_employee.WorkplaceId} AND status = false")
+                .ToList();
+
+            DefectiveHardware.ItemsSource = defectiveHardwares;
+
+            foreach (var hardware in hardwares)
+            {
+                Console.WriteLine(hardware);
+            }
+
+
             //var price_hardwares = _db.Hardwares
-              //  .FromSql($"SELECT SUM(price)\r\nFROM employee\r\nJOIN employee_category USING(employee_id)\r\nJOIN category USING(category_id)\r\nJOIN hardware USING(category_id)\r\nWHERE category_name = {categoryName} AND employee_id = {_employee.WorkplaceId}")
-              //.ToList();
+            //  .FromSql($"SELECT SUM(price)\r\nFROM employee\r\nJOIN employee_category USING(employee_id)\r\nJOIN category USING(category_id)\r\nJOIN hardware USING(category_id)\r\nWHERE category_name = {categoryName} AND employee_id = {_employee.WorkplaceId}")
+            //.ToList();
         }
 
         private void BackToMainWindow_Click(object sender, RoutedEventArgs e)

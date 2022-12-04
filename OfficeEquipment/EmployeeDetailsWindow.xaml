@@ -39,7 +39,7 @@
         <ListView x:Name="DefectiveHardware" Margin="487,135,26,24">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="280">Наименование техники</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=HardwareName}" Width="280">Наименование техники</GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
