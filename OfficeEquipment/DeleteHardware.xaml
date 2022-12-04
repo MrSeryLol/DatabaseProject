@@ -1,0 +1,16 @@
+﻿<Window x:Class="OfficeEquipment.DeleteHardware"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OfficeEquipment"
+        mc:Ignorable="d"
+        Title="Удаление Техники" Height="227" Width="251">
+    <Grid Margin="0,0,0,-6">
+        <ComboBox x:Name="CategoriesBox" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,7,0,0" TextWrapping="Wrap" Text="Категория" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ComboBox x:Name="HardwareBox" HorizontalAlignment="Center" Margin="0,89,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="102,68,0,0" TextWrapping="Wrap" Text="Техника" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Button x:Name="btn_DeleteHardware" Content="Удалить" HorizontalAlignment="Center" Margin="0,133,0,0" VerticalAlignment="Top" Height="37" Width="87" Click="btn_DeleteHardware_Click"/>
+    </Grid>
+</Window>

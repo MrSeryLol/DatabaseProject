@@ -52,8 +52,10 @@ namespace OfficeEquipment
             
             Category category = _categoryModel.AddCategory(categoryName);
             _employeeModel.AddCategoryToEmployee(category, employee);
+
             Hardware hardware = _hardwareModel.AddHardware(hardware_name.Text, Convert.ToDecimal(price.Text), DateOnly.Parse(production_year.Text), DateOnly.Parse(purchase_date.Text), category.CategoryId);
             _categoryModel.AddHardwareToCatrgory(hardware, category);
+
         }
 
     }

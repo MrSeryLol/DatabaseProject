@@ -61,6 +61,10 @@ namespace OfficeEquipment
             }
 
             _employeeModel.AddEmployee(first_name_entry.Text, second_name_entry.Text, patronymic_entry.Text, Convert.ToInt32(workplace_id_entry.Text));
+            first_name_entry.Text = "";
+            second_name_entry.Text = "";
+            patronymic_entry.Text = "";
+            workplace_id_entry.Text = "";
         }
     }
 }

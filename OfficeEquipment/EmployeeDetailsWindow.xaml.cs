@@ -62,5 +62,10 @@ namespace OfficeEquipment
               //  .FromSql($"SELECT SUM(price)\r\nFROM employee\r\nJOIN employee_category USING(employee_id)\r\nJOIN category USING(category_id)\r\nJOIN hardware USING(category_id)\r\nWHERE category_name = {categoryName} AND employee_id = {_employee.WorkplaceId}")
               //.ToList();
         }
+
+        private void BackToMainWindow_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
